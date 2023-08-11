@@ -1,7 +1,9 @@
 <?php require "../includes/header.php";?>
 <?php require "../config/config.php";?>
 <?php
-
+if(isset( $_SESSION['username'])){
+  echo "<script>alert('LOgin swcess')</script>";
+}
 if(isset($_POST['submit'])) {
   if( empty($_POST['email']) OR empty($_POST["password"])) {
     echo "<script>alert('one or more input are empty')</script>";
@@ -19,6 +21,7 @@ if($login->rowCount() === 1) {
     echo "<script>alert('LOgin swcess')</script>";
     $_SESSION['id'] = $fetch['id'];
     $_SESSION['username'] = $fetch['username'];
+    header("location: ".APPURL."");
   }else{
     echo "<script>alert('email or password wrong')</script>";
   }

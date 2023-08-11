@@ -1,7 +1,9 @@
 <?php require "../includes/header.php";?>
 <?php require "../config/config.php";?>
 <?php
-
+if(isset( $_SESSION['username'])){
+  echo "<script>alert('LOgin swcess')</script>";
+}
 if(isset($_POST['submit'])) {
   if(empty($_POST['username'] ) OR empty($_POST['email']) OR empty($_POST["password"])) {
     echo "<script>alert('one or more input are empty')</script>";
